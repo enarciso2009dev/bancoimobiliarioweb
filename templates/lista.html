@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Gerenciando Jogadores</title>
+</head>
+<body>
+<div class="row">
+	<div class="card">
+		<h1 align="center">Gerenciar Jogadores</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="card">
+		{% if lista == False %}
+			Nenhuma Jogador foi cadastrado, por favor cadastre uma agora mesmo! <br>
+			<a href="{{ url_for('cadastro') }}"> CADASTRAR </a>
+		{% else %}
+			<table width="100%">
+				<thead>
+					<tr>
+						<th>Nome</th>
+						<th>Valor</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in lista %}
+					<tr>
+						<td>{{ item['nome'] }}</td>
+						<td>{{ item['valor'] }}</td>
+						<td>
+							<a href="{{ url_for('cadastro') }}{{item['nome']}}">Alterar</a>
+							&nbsp;
+							<a onclick="return confirm('Deseja realmente excluir o jogador selecionada?')" href="{{ url_for('pizzas.excluir') }}{{item['id']}}">Excluir</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Transferencias Bancarias</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/trans.css') }}">
+</head>
+<body>
+    <h1>Transferencias Bancarias</h1>
+    <form method="post" action="/atualiza_saldo">
+     <label for="nome"><b>jogador transfere:</b></label></br></br>
+
+        <select name="jogadorest" style="font-size: 1em;">
+            {% for item in jogadorest %}
+                <option value="{{item.id}}">{{ item.nome }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <br>
+        <br>
+        <table>
+            <tr>
+                <td>Valor:</td>
+                <td><input name="valor"size="15"/><br/></td>
+            </tr>
+
+        </table>
+        </br>
+        </br>
+     <label for="nome"><b>jogador Recebe:</b></label></br></br>
+        <select name="jogadoresr" style="font-size: 1em;">
+            {% for item in jogadoresr %}
+                <option value="{{item.id}}">{{ item.nome }}</option>
+            {% endfor %}
+        </select>
+        </br>
+        </br>
+        <button> Enviar </button>
+        </br>
+        </br>
+        <a href="/">Voltar para a Home</a>
+    </form>
+
+</body>
+</html>
+<footer>
+	<h5></h5>
+	<h6>@Infonarc.company</h6>
+</footer>

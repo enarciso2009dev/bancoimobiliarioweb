@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>Banco Imobiliario</title>
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/modelo.css') }}">
+</head>
+<body>
+
+    <h1>BANCO IMOBILIARIO</h1>
+	<table border="0" width="100%">
+		<colgroup>
+			<col width="45%">
+			<col width="45%">
+		</colgroup>
+		<tr>
+			<td><a href="cadastro">Cadastro</a></td>
+			<td><a href="transferencia">Transferencia</a></td>
+			<td><a href="sair">Sair</a></td>
+		</tr>
+	</table>
+
+    <h2>Gerenciar Jogadores</h2>
+
+		{% if listat == False %}
+			Nenhum Jogador foi cadastrado, por favor cadastre um agora mesmo! <br>
+			<a href="{{ url_for('/') }}"> CADASTRAR </a>
+		{% else %}
+			<table width="100%">
+				<colgroup>
+					<col width="45%">
+					<col width="55%">
+				</colgroup>
+				<thead>
+					<tr>
+						<td><b>Nome</b></td>
+						<td><b>Valor</b></td>
+					</tr>
+				</thead>
+				<tbody>
+					{% for item in listat %}
+					<tr>
+						<td>{{ item['nome'] }}</td>
+						<td>{{ item['valor'] }}</td>
+
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		{% endif %}
+
+</body>
+
+</html>
+<footer>
+	<h5></h5>
+	<h6>@Infonarc.company</h6>
+</footer>
